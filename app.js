@@ -29,6 +29,7 @@ function onReady() {
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
+    localStorage.setItem('toDoStorage', JSON.stringify(toDos));
   });
 
   function renderTheUI() {
@@ -58,6 +59,7 @@ function onReady() {
       toDos = toDos.filter(function(item){
         return item.id !== toDo.id;
       })
+        localStorage.setItem('toDoStorage', JSON.stringify(toDos));
         renderTheUI();
       });
 
